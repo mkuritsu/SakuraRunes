@@ -1,0 +1,19 @@
+name: SakuraRunes
+version: '${project.version}'
+main: io.github.itstaylz.sakurarunes.SakuraRunesPlugin
+api-version: 1.18
+authors: [ itsTaylz ]
+depend: [Hexlib]
+commands:
+
+  runesmenu:
+    permission: sakurarunes.adminmenu
+    permission-message: §cNo permission.
+
+  giverune:
+    permission: sakurarunes.give
+    permission-message: §cNo permission.
+
+  runesreload:
+    permission: sakurarunes.reload
+    permission-message: §cNo permission.
