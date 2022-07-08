@@ -2,199 +2,60 @@ runes:
   sakura_blessing:
     display_name: "&d❀ Sakura Blessing"
     rarity: "MYTHIC"
-    type: "CHESTPLATE"
-    particle: "FIREWORKS_SPARK"
+    type: "BOW"
+    particle: "FLAME"
     head_skin: "https://textures.minecraft.net/texture/82090aa835f6b97eea8dad4309e96e6c85e727749a24fb7362af79c4d57f3e89"
     lore:
       - "&7Sakura petals will fall at your will!"
       - ""
       - "&7Apply this blessing to a chestplate!"
-  example_rune_2:
-    display_name: "&bExample Rune 2"
+  sakura_blessing_2:
+    display_name: "&d❀ Sakura Blessing 2"
     rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
+    type: "CHESTPLATE"
+    particle: "FLAME"
+    head_skin: "https://textures.minecraft.net/texture/82090aa835f6b97eea8dad4309e96e6c85e727749a24fb7362af79c4d57f3e89"
     lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_3:
-    display_name: "&bExample Rune 3"
+      - "&7Sakura petals will fall at your will!"
+      - ""
+      - "&7Apply this blessing to a chestplate!"
+  sakura_blessing_3:
+    display_name: "&d❀ Sakura Blessing 3"
     rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
+    type: "BOOTS"
+    particle: "FLAME"
+    head_skin: "https://textures.minecraft.net/texture/82090aa835f6b97eea8dad4309e96e6c85e727749a24fb7362af79c4d57f3e89"
     lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_4:
-    display_name: "&bExample Rune 4"
+      - "&7Sakura petals will fall at your will!"
+      - ""
+      - "&7Apply this blessing to a chestplate!"
+  sakura_blessing_4:
+    display_name: "&d❀ Sakura Blessing 4"
     rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
+    type: "HELMET"
+    particle: "FLAME"
+    head_skin: "https://textures.minecraft.net/texture/82090aa835f6b97eea8dad4309e96e6c85e727749a24fb7362af79c4d57f3e89"
     lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_5:
-    display_name: "&bExample Rune 4"
+      - "&7Sakura petals will fall at your will!"
+      - ""
+      - "&7Apply this blessing to a chestplate!"
+  sakura_blessing_5:
+    display_name: "&d❀ Sakura Blessing 4"
     rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
+    type: "PICKAXE"
+    particle: "FLAME"
+    head_skin: "https://textures.minecraft.net/texture/82090aa835f6b97eea8dad4309e96e6c85e727749a24fb7362af79c4d57f3e89"
     lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_6:
-    display_name: "&bExample Rune 4"
+      - "&7Sakura petals will fall at your will!"
+      - ""
+      - "&7Apply this blessing to a chestplate!"
+  sakura_blessing_6:
+    display_name: "&d❀ Sakura Blessing 4"
     rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
+    type: "SWORD"
+    particle: "FLAME"
+    head_skin: "https://textures.minecraft.net/texture/82090aa835f6b97eea8dad4309e96e6c85e727749a24fb7362af79c4d57f3e89"
     lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_7:
-    display_name: "&bExample Rune 4"
-    rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
-    lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_8:
-    display_name: "&bExample Rune 4"
-    rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
-    lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_9:
-    display_name: "&bExample Rune 4"
-    rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
-    lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_10:
-    display_name: "&bExample Rune 4"
-    rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
-    lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_11:
-    display_name: "&bExample Rune 4"
-    rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
-    lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_12:
-    display_name: "&bExample Rune 4"
-    rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
-    lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_13:
-    display_name: "&bExample Rune 4"
-    rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
-    lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_14:
-    display_name: "&bExample Rune 4"
-    rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
-    lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_15:
-    display_name: "&bExample Rune 4"
-    rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
-    lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_16:
-    display_name: "&bExample Rune 4"
-    rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
-    lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_17:
-    display_name: "&bExample Rune 4"
-    rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
-    lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_18:
-    display_name: "&bExample Rune 4"
-    rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
-    lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_19:
-    display_name: "&bExample Rune 4"
-    rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
-    lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_20:
-    display_name: "&bExample Rune 4"
-    rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
-    lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_21:
-    display_name: "&bExample Rune 4"
-    rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
-    lore:
-      - "This is just a example"
-      - "rune :)"
-  example_rune_22:
-    display_name: "&bExample Rune 4"
-    rarity: "MYTHIC"
-    type: "BOW"
-    particle: "FIREWORKS_SPARK"
-    head_skin: "https://textures.minecraft.net/texture/a953388ccd6ff64fc1950dd4cec4adeaa348aaabcc532828e7144f509f23c"
-    lore:
-      - "This is just a example"
-      - "rune :)"
+      - "&7Sakura petals will fall at your will!"
+      - ""
+      - "&7Apply this blessing to a chestplate!"
