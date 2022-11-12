@@ -11,7 +11,8 @@ public enum RuneType {
     BOW,
     PICKAXE,
     AXE,
-    SHOVEL;
+    SHOVEL,
+    ELYTRA;
 
     public boolean canBePlacedOn(Material material) {
         return material.name().contains(this.name());

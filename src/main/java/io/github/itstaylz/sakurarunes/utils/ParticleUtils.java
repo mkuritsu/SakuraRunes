@@ -4,7 +4,11 @@ import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.util.Vector;
 
+import java.util.Random;
+
 public final class ParticleUtils {
+
+    private static final Random RANDOM = new Random();
 
     public static void drawCircleParticles(Location location, Particle particle, double radius, int precision) {
         for (int i = 0; i < 360; i += precision) {
@@ -27,6 +31,17 @@ public final class ParticleUtils {
                 location = location.add(vector);
             }
             vector.rotateAroundY(Math.PI / 2);
+        }
+    }
+
+    public static void drawBlockBreakParticles(Location middle, Particle particle) {
+        for (int i = 0; i < 10; i++) {
+            Location drawLocation = middle.clone();
+            double x = RANDOM.nextDouble(1) - 0.5;
+            double y = RANDOM.nextDouble(1) - 0.5;
+            double z = RANDOM.nextDouble(1) - 0.5;
+            drawLocation.add(x, y, z);
+            middle.getWorld().spawnParticle(particle, drawLocation, 1, 0, 0, 0, 0);
         }
     }
 }

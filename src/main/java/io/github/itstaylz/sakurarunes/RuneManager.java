@@ -1,10 +1,13 @@
-package io.github.itstaylz.sakurarunes.runes;
+package io.github.itstaylz.sakurarunes;
 
 import io.github.itstaylz.hexlib.items.ItemBuilder;
 import io.github.itstaylz.hexlib.storage.files.YamlFile;
 import io.github.itstaylz.hexlib.utils.ItemUtils;
 import io.github.itstaylz.hexlib.utils.StringUtils;
 import io.github.itstaylz.sakurarunes.SakuraRunesPlugin;
+import io.github.itstaylz.sakurarunes.runes.Rune;
+import io.github.itstaylz.sakurarunes.runes.RuneRarity;
+import io.github.itstaylz.sakurarunes.runes.RuneType;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Particle;
 import org.bukkit.configuration.ConfigurationSection;

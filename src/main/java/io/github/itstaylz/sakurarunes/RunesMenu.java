@@ -5,7 +5,6 @@ import io.github.itstaylz.hexlib.menus.Menu;
 import io.github.itstaylz.hexlib.menus.components.MenuButton;
 import io.github.itstaylz.hexlib.utils.StringUtils;
 import io.github.itstaylz.sakurarunes.runes.Rune;
-import io.github.itstaylz.sakurarunes.runes.RuneManager;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.inventory.ItemStack;
@@ -28,7 +27,7 @@ public class RunesMenu extends Menu {
     private final int amountOfPages;
 
     public RunesMenu() {
-        super(5*9, StringUtils.colorize("&9RUNES &7- &cAdmin Menu"));
+        super(5*9, StringUtils.colorize("&9RUNES &7- &cAdmin Menu"), false, true, null);
         this.runes.addAll(RuneManager.getAllRunes());
         this.amountOfPages = (int) Math.ceil(this.runes.size() / 21.0);
         openPage(0);

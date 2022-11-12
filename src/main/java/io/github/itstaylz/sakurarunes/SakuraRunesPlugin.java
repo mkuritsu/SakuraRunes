@@ -2,7 +2,6 @@ package io.github.itstaylz.sakurarunes;
 
 import io.github.itstaylz.hexlib.utils.StringUtils;
 import io.github.itstaylz.sakurarunes.runes.Rune;
-import io.github.itstaylz.sakurarunes.runes.RuneManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

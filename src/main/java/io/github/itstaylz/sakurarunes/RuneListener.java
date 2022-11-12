@@ -2,7 +2,6 @@ package io.github.itstaylz.sakurarunes;
 
 import io.github.itstaylz.hexlib.utils.StringUtils;
 import io.github.itstaylz.sakurarunes.runes.Rune;
-import io.github.itstaylz.sakurarunes.runes.RuneManager;
 import io.github.itstaylz.sakurarunes.utils.ParticleUtils;
 import org.bukkit.*;
 import org.bukkit.block.Block;
@@ -18,15 +17,9 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.inventory.CraftingInventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.util.Vector;
-
-import java.util.Locale;
 
 public class RuneListener implements Listener {
 
@@ -47,11 +40,11 @@ public class RuneListener implements Listener {
                     ItemStack helmet = player.getInventory().getHelmet();
                     ItemStack chestplate = player.getInventory().getChestplate();
                     ItemStack boots = player.getInventory().getBoots();
-                    if (helmet != null && RuneManager.hasAppliedRune(helmet) && count == 5) {
+                    if (helmet != null && RuneManager.hasAppliedRune(helmet)) {
                         Rune rune = RuneManager.getItemAppliedRune(helmet);
                         if (rune != null) {
                             Location loc = player.getLocation().add(0, 2.2, 0);
-                            ParticleUtils.drawCircleParticles(loc, rune.particle(), 0.5, 20);
+                            player.getWorld().spawnParticle(rune.particle(), loc, 2, 0, 0, 0, 0.025);
                         }
                     }
                     if (chestplate != null && RuneManager.hasAppliedRune(chestplate)) {
@@ -103,21 +96,8 @@ public class RuneListener implements Listener {
         Block block = event.getBlock();
         Rune rune = RuneManager.getItemAppliedRune(item);
         if (rune != null) {
-            final Location location = block.getLocation().add(0, 1, 0);
-            new BukkitRunnable() {
-
-                int count = 0;
-                @Override
-                public void run() {
-                    if (count == 10) {
-                        cancel();
-                        return;
-                    }
-                    ParticleUtils.drawSquareParticles(location, rune.particle());
-                    location.subtract(0, 0.1, 0);
-                    count++;
-                }
-            }.runTaskTimer(this.plugin, 0L, 4L);
+            Location location = block.getLocation().add(0.5, 0.5, 0.5); // MIDDLE
+            ParticleUtils.drawBlockBreakParticles(location, rune.particle());
         }
     }
 
@@ -146,17 +126,23 @@ public class RuneListener implements Listener {
         if (event.getWhoClicked() instanceof Player player && player.getInventory().getViewers().contains(player) && player.getGameMode() != GameMode.CREATIVE) {
             ItemStack cursor = event.getCursor();
             ItemStack clicked = event.getCurrentItem();
-            if (clicked != null && cursor != null) {
+            if (clicked != null && cursor != null && clicked.getType() != Material.AIR) {
                 Rune rune = RuneManager.getRune(cursor);
-                if (rune != null && rune.type().canBePlacedOn(clicked.getType())) {
+                if (rune != null) {
                     event.setCancelled(true);
-                    if (RuneManager.applyRuneToItem(clicked, rune)) {
-                        player.setItemOnCursor(null);
-                        player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1f, 1f);
-                        player.sendMessage(StringUtils.colorize("&aRune applied successfully!"));
+                    if (rune.type().canBePlacedOn(clicked.getType())) {
+                        if (!RuneManager.hasAppliedRune(clicked)) {
+                            player.setItemOnCursor(null);
+                            RuneManager.applyRuneToItem(clicked, rune);
+                            player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1f, 1f);
+                            player.sendMessage(StringUtils.colorize("&7&l[&d&lSakura&b&lMC&7&l] &dBlessing has been applied!"));
+                        } else {
+                            player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1f, 1f);
+                            player.sendMessage(StringUtils.colorize("&7&l[&d&lSakura&b&lMC&7&l] &cThis item already has a blessing applied"));
+                        }
                     } else {
                         player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1f, 1f);
-                        player.sendMessage(StringUtils.colorize("&cThis rune cannot be applied to this item!"));
+                        player.sendMessage(StringUtils.colorize("&7&l[&d&lSakura&b&lMC&7&l] &cThis blessing cannot be applied to this type of item"));
                     }
                 }
             }
