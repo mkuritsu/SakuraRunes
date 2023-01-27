@@ -1,8 +1,9 @@
 package io.github.itstaylz.sakurarunes;
 
 import io.github.itstaylz.hexlib.items.ItemBuilder;
-import io.github.itstaylz.hexlib.menus.Menu;
-import io.github.itstaylz.hexlib.menus.components.MenuButton;
+import io.github.itstaylz.hexlib.menu.Menu;
+import io.github.itstaylz.hexlib.menu.MenuSettings;
+import io.github.itstaylz.hexlib.menu.components.Button;
 import io.github.itstaylz.hexlib.utils.StringUtils;
 import io.github.itstaylz.sakurarunes.runes.Rune;
 import org.bukkit.Material;
@@ -13,6 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RunesMenu extends Menu {
+
+    private static final MenuSettings SETTINGS = MenuSettings.builder()
+            .withNumberOfRows(5)
+            .withTitle(StringUtils.colorize("&9RUNES &7- &cAdmin Menu"))
+            .build();
 
     private static final ItemStack BACK_ARROW = new ItemBuilder(Material.ARROW)
             .setDisplayName(StringUtils.colorize("&ePrevious Page"))
@@ -27,7 +33,7 @@ public class RunesMenu extends Menu {
     private final int amountOfPages;
 
     public RunesMenu() {
-        super(5*9, StringUtils.colorize("&9RUNES &7- &cAdmin Menu"), false, true, null);
+        super(SETTINGS);
         this.runes.addAll(RuneManager.getAllRunes());
         this.amountOfPages = (int) Math.ceil(this.runes.size() / 21.0);
         openPage(0);
@@ -40,18 +46,18 @@ public class RunesMenu extends Menu {
             if (i == 17 || i == 18 || i == 26 || i == 27)
                 continue;
             Rune rune = this.runes.get(index);
-            addComponent(i, new MenuButton(rune.itemStack(), ((event, player, menu) -> {
+            setComponent(i, new Button(rune.itemStack(), ((menu, player, event) -> {
                 player.getInventory().addItem(rune.itemStack());
                 player.playSound(player.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1f, 1f);
             })));
             index++;
         }
         if (page > 0)
-            addComponent(18, new MenuButton(BACK_ARROW, (event, player, menu) -> {
+            setComponent(18, new Button(BACK_ARROW, (menu, player, event) -> {
                 openPage(page - 1);
             }));
         if (page + 1 < this.amountOfPages)
-            addComponent(26, new MenuButton(NEXT_ARROW, (event, player, menu) -> {
+            setComponent(26, new Button(NEXT_ARROW, (menu, player, event) -> {
                 openPage(page + 1);
             }));
     }

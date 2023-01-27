@@ -1,10 +1,9 @@
 package io.github.itstaylz.sakurarunes;
 
 import io.github.itstaylz.hexlib.items.ItemBuilder;
-import io.github.itstaylz.hexlib.storage.files.YamlFile;
-import io.github.itstaylz.hexlib.utils.ItemUtils;
+import io.github.itstaylz.hexlib.storage.file.YamlFile;
+import io.github.itstaylz.hexlib.utils.PDCUtils;
 import io.github.itstaylz.hexlib.utils.StringUtils;
-import io.github.itstaylz.sakurarunes.SakuraRunesPlugin;
 import io.github.itstaylz.sakurarunes.runes.Rune;
 import io.github.itstaylz.sakurarunes.runes.RuneRarity;
 import io.github.itstaylz.sakurarunes.runes.RuneType;
@@ -48,14 +47,14 @@ public class RuneManager {
         for (String key : keys) {
             String id = key;
             key = "runes." + key;
-            String name = StringUtils.fullColorize(config.get(key + ".display_name", String.class));
+            String name = StringUtils.colorize(config.get(key + ".display_name", String.class));
             RuneRarity rarity = RuneRarity.valueOf(config.get(key + ".rarity", String.class));
             RuneType type = RuneType.valueOf(config.get(key + ".type", String.class));
             Particle particle = Particle.valueOf(config.get(key + ".particle", String.class));
             List<String> uncoloredLore = config.getConfig().getStringList(key + ".lore");
             List<String> lore = new ArrayList<>();
             for (String line : uncoloredLore) {
-                lore.add(StringUtils.fullColorize(line));
+                lore.add(StringUtils.colorize(line));
             }
             String headURL = config.get(key + ".head_skin", String.class);
             Rune rune = new Rune(id, name, rarity, type, particle, lore, headURL);
@@ -68,7 +67,7 @@ public class RuneManager {
     }
 
     public static Rune getRune(ItemStack item) {
-        String runeID = ItemUtils.getPDCValue(item, RUNE_KEY, PersistentDataType.STRING);
+        String runeID = PDCUtils.getPDCValue(item, RUNE_KEY, PersistentDataType.STRING);
         return runeID == null ? null : RUNES_REGISTRY.get(runeID);
     }
 
@@ -77,7 +76,7 @@ public class RuneManager {
     }
 
     public static Rune getItemAppliedRune(ItemStack item) {
-        String runeID = ItemUtils.getPDCValue(item, APPLIED_RUNE_KEY, PersistentDataType.STRING);
+        String runeID = PDCUtils.getPDCValue(item, APPLIED_RUNE_KEY, PersistentDataType.STRING);
         return runeID == null ? null : RUNES_REGISTRY.get(runeID);
     }
 
@@ -87,7 +86,7 @@ public class RuneManager {
 
     public static boolean applyRuneToItem(ItemStack item, Rune rune) {
         if (!hasAppliedRune(item) && rune.type().canBePlacedOn(item.getType())) {
-            ItemUtils.setPDCValue(item, APPLIED_RUNE_KEY, PersistentDataType.STRING, rune.id());
+            PDCUtils.setPDCValue(item, APPLIED_RUNE_KEY, PersistentDataType.STRING, rune.id());
             new ItemBuilder(item)
                     .addLore("", rune.displayName(), "")
                     .build();

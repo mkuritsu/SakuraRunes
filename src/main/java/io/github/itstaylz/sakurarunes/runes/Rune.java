@@ -1,7 +1,7 @@
 package io.github.itstaylz.sakurarunes.runes;
 
 import io.github.itstaylz.hexlib.items.SkullBuilder;
-import io.github.itstaylz.hexlib.utils.ItemUtils;
+import io.github.itstaylz.hexlib.utils.PDCUtils;
 import io.github.itstaylz.hexlib.utils.StringUtils;
 import io.github.itstaylz.sakurarunes.RuneManager;
 import org.bukkit.Particle;
@@ -23,7 +23,7 @@ public record Rune(String id, String displayName, RuneRarity rarity, RuneType ty
                 .addLore(this.lore.toArray(new String[0]))
                 .addLore("", StringUtils.colorize("&7Rarity: " + rarity.getDisplayName()))
                 .build();
-        ItemUtils.setPDCValue(item, RuneManager.RUNE_KEY, PersistentDataType.STRING, this.id);
+        PDCUtils.setPDCValue(item, RuneManager.RUNE_KEY, PersistentDataType.STRING, this.id);
         return item;
     }
 
