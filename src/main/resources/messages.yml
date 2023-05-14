@@ -1,0 +1,8 @@
+# Message sent to the player when a tracker is applied
+blessing_applied_message: "&7&l[&d&lSakura&b&lMC&7&l] &dBlessing has been applied!"
+
+# Message sent to the player when trying to apply a tracker to an item that already has that tracker equipped
+blessing_already_applied_message: "&7&l[&d&lSakura&b&lMC&7&l] &cThis item already has a blessing applied"
+
+# Message sent to the player when trying to equip a tracker to an item that it doesn't support
+blessing_invalid_item_message: "&7&l[&d&lSakura&b&lMC&7&l] &cThis tracker can't be applied to this item."

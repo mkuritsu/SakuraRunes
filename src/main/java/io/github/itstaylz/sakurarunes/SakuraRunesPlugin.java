@@ -1,5 +1,6 @@
 package io.github.itstaylz.sakurarunes;
 
+import io.github.itstaylz.hexlib.storage.file.YamlFile;
 import io.github.itstaylz.hexlib.utils.StringUtils;
 import io.github.itstaylz.sakurarunes.runes.Rune;
 import org.bukkit.Bukkit;
@@ -9,16 +10,20 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public final class SakuraRunesPlugin extends JavaPlugin implements CommandExecutor {
 
     private final List<String> runesIDs = new ArrayList<>();
+    private YamlFile messagesFile;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
+        saveResource("messages.yml", false);
+        this.messagesFile = new YamlFile(new File(getDataFolder(), "messages.yml"));
         RuneManager.loadRunes();
         for (Rune rune : RuneManager.getAllRunes()) {
             runesIDs.add(rune.id());
@@ -57,6 +62,7 @@ public final class SakuraRunesPlugin extends JavaPlugin implements CommandExecut
             return true;
         } else if (command.getName().equalsIgnoreCase("runesreload")) {
             RuneManager.loadRunes();
+            this.messagesFile.reload();
         }
         return false;
     }
@@ -66,5 +72,9 @@ public final class SakuraRunesPlugin extends JavaPlugin implements CommandExecut
         if (command.getName().equalsIgnoreCase("giverune") && args.length == 2)
             return runesIDs;
         return super.onTabComplete(sender, command, alias, args);
+    }
+
+    public YamlFile getMessagesFile() {
+        return messagesFile;
     }
 }

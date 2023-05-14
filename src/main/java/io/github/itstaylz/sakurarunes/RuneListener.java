@@ -1,5 +1,6 @@
 package io.github.itstaylz.sakurarunes;
 
+import io.github.itstaylz.hexlib.storage.file.YamlFile;
 import io.github.itstaylz.hexlib.utils.StringUtils;
 import io.github.itstaylz.sakurarunes.runes.Rune;
 import io.github.itstaylz.sakurarunes.utils.ParticleUtils;
@@ -21,11 +22,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.io.File;
+
 public class RuneListener implements Listener {
 
-    private final JavaPlugin plugin;
+    private final SakuraRunesPlugin plugin;
 
-    public RuneListener(JavaPlugin plugin) {
+    public RuneListener(SakuraRunesPlugin plugin) {
         this.plugin = plugin;
         startRunnable();
     }
@@ -135,14 +138,14 @@ public class RuneListener implements Listener {
                             player.setItemOnCursor(null);
                             RuneManager.applyRuneToItem(clicked, rune);
                             player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1f, 1f);
-                            player.sendMessage(StringUtils.colorize("&7&l[&d&lSakura&b&lMC&7&l] &dBlessing has been applied!"));
+                            player.sendMessage(StringUtils.colorize(this.plugin.getMessagesFile().getConfig().getString("blessing_applied_message")));
                         } else {
                             player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1f, 1f);
-                            player.sendMessage(StringUtils.colorize("&7&l[&d&lSakura&b&lMC&7&l] &cThis item already has a blessing applied"));
+                            player.sendMessage(StringUtils.colorize(this.plugin.getMessagesFile().getConfig().getString("blessing_already_applied_message")));
                         }
                     } else {
                         player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1f, 1f);
-                        player.sendMessage(StringUtils.colorize("&7&l[&d&lSakura&b&lMC&7&l] &cThis blessing cannot be applied to this type of item"));
+                        player.sendMessage(StringUtils.colorize(this.plugin.getMessagesFile().getConfig().getString("blessing_invalid_item_message")));
                     }
                 }
             }
